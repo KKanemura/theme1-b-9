@@ -1,81 +1,70 @@
-
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --text: #1e293b;
+  --muted: #64748b;
+  --background: #eff6ff;
+  --card: #ffffff;
+  --border: #bfdbfe;
+}
 
 body {
   margin: 0;
-  padding: 32px 16px;
-  background-color: #f0f7ff;
-  color: #1e293b;
-  font-family: sans-serif;
-  line-height: 1.7;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #dbeafe, #f8fafc);
+  color: var(--text);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.8;
 }
 
 main {
-  max-width: 720px;
+  width: min(100%, 760px);
   margin: 0 auto;
 }
 
 h1 {
-  margin-bottom: 32px;
-  color: #2563eb;
+  margin: 0 0 36px;
+  color: var(--primary-dark);
+  font-size: clamp(32px, 7vw, 48px);
+  letter-spacing: 0.08em;
   text-align: center;
 }
 
 section {
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-left: 6px solid #3b82f6;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.12);
+  margin-bottom: 24px;
+  padding: 24px 28px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 7px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.18);
 }
 
 h2 {
-  margin-top: 0;
-  color: #1d4ed8;
-  font-size: 20px;
+  margin: 0 0 10px;
+  color: var(--primary-dark);
+  font-size: 21px;
+  line-height: 1.4;
 }
 
-/* 将来ボタンを追加した場合のデザイン */
-button,
-input[type="button"],
-input[type="submit"] {
-  min-width: 180px;
-  min-height: 48px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 10px;
-  background-color: #2563eb;
-  color: #ffffff;
+p {
+  margin: 0;
+  color: var(--muted);
   font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
-  background-color: #1d4ed8;
-}
-
-button:active,
-input[type="button"]:active,
-input[type="submit"]:active {
-  background-color: #1d4ed8;
-}
-
-button:focus-visible,
-input[type="button"]:focus-visible,
-input[type="submit"]:focus-visible {
-  outline: 3px solid #93c5fd;
-  outline-offset: 3px;
-}
-
-
-/* ボタン用デザイン */
+/* index.htmlにボタンを追加した場合に適用されるデザイン */
 button,
 input[type="button"],
 input[type="submit"] {
@@ -84,7 +73,7 @@ input[type="submit"] {
   padding: 12px 24px;
   border: 0;
   border-radius: 999px;
-  background: var(--primary);
+  background-color: var(--primary);
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -96,7 +85,7 @@ input[type="submit"] {
 button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-  background: var(--primary-dark);
+  background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
 
