@@ -27,6 +27,18 @@
 		<section>
 			<h2>17:15 に見せる操作</h2>
 			<p>空き状況を1画面で表示する。</p>
+
+			<form id="availability-form">
+				<label for="place-input">場所</label>
+				<input id="place-input" type="text" placeholder="場所名">
+
+				<label for="available-input">空席数</label>
+				<input id="available-input" type="number" min="0" placeholder="空席数">
+
+				<button type="submit">更新</button>
+			</form>
+
+			<div id="availability-list"></div>
 		</section>
 	</main>
 </body>
