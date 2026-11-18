@@ -1,81 +1,129 @@
-:root {
-  font-family: sans-serif;
-  color: #1f2933;
-  background: #f6f8fa;
+
+* {
+  box-sizing: border-box;
 }
+
 
 body {
   margin: 0;
+  padding: 32px 16px;
+  background-color: #f0f7ff;
+  color: #1e293b;
+  font-family: sans-serif;
+  line-height: 1.7;
 }
 
 main {
-  width: min(720px, calc(100% - 32px));
-  margin: 32px auto;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 32px;
+  color: #2563eb;
+  text-align: center;
 }
 
 section {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-left: 6px solid #3b82f6;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.12);
 }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 140px auto;
-  gap: 8px;
-  align-items: end;
+h2 {
+  margin-top: 0;
+  color: #1d4ed8;
+  font-size: 20px;
 }
 
-label {
-  grid-row: 1;
-  font-size: 14px;
-}
-
-input {
-  flex: 1;
-  min-width: 0;
-  padding: 10px;
-  border: 1px solid #8a949e;
-  border-radius: 4px;
+/* 将来ボタンを追加した場合のデザイン */
+button,
+input[type="button"],
+input[type="submit"] {
+  min-width: 180px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2563eb;
+  color: #ffffff;
   font-size: 16px;
-}
-
-button {
-  padding: 10px 16px;
-  border: 0;
-  border-radius: 4px;
-  background: #1769aa;
-  color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 
-#availability-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: #1d4ed8;
 }
 
-#availability-list article {
-  border: 1px solid #ccd3da;
-  border-radius: 6px;
-  padding: 12px;
-  background: white;
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  background-color: #1d4ed8;
 }
 
-#availability-list h3,
-#availability-list p {
-  margin: 0 0 8px;
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
 }
 
-#availability-list small {
-  color: #66717d;
+
+/* ボタン用デザイン */
+button,
+input[type="button"],
+input[type="submit"] {
+  min-width: 180px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
 }
 
 @media (max-width: 600px) {
-  form {
-    grid-template-columns: 1fr;
+  body {
+    padding: 24px 14px;
   }
 
-  label {
-    grid-row: auto;
+  section {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 19px;
   }
 }
+
