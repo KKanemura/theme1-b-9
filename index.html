@@ -18,18 +18,39 @@
 
 		<section>
 			<h2>メイン機能</h2>
-			<p>ラーニングコモンズや空き教室、図書館などの席の空き状況を一画面で確認可能</p>
+			<p>ラーニングコモンズや空き教室、図書館などの席の空き状況を<br>一画面で確認可能</p>
 		</section>
 
 		<section>
 			<h2>メリットと料金設定</h2>
-			<p>勉強したい学生たちが場所をすぐに見つけられる
-                料金としては六か月で500円</p>
+			<p>勉強したい学生たちが場所をすぐに見つけられる<br>料金としては六か月で500円</p>
 		</section>
 
-		<section>
-			<h2>17:15 に見せる操作</h2>
-			<p>空き状況を1画面で表示する。</p>
+
+		<section class="availability-section" aria-labelledby="availability-title">
+			<h2 id="availability-title">教室ごとの空き状況</h2>
+			<form id="room-form" class="room-form">
+				<label>
+					教室名
+					<input id="room-name" name="room-name" type="text" placeholder="例：A棟101" required>
+				</label>
+				<label>
+					座席数
+					<input id="seat-count" name="seat-count" type="number" min="1" placeholder="30" required>
+				</label>
+				<label>
+					空き状況
+					<select id="room-status" name="room-status">
+						<option value="available">空き</option>
+						<option value="limited">残りわずか</option>
+						<option value="full">満席</option>
+					</select>
+				</label>
+				<button type="submit">教室を追加</button>
+			</form>
+
+			<div id="room-list" class="room-list" aria-live="polite"></div>
+			<p id="empty-state" class="empty-state">登録されている教室はありません。</p>
 		</section>
 	</main>
 </body>
