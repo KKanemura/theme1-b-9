@@ -1,33 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --text: #1e293b;
+  --muted: #64748b;
+  --background: #eff6ff;
+  --card: #ffffff;
+  --border: #bfdbfe;
+}
 
 body {
-	margin: 8px;
-	color: #111;
-	font-family: sans-serif;
-	font-size: 16px;
-	line-height: 1.6;
+  margin: 0;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #dbeafe, #f8fbff);
+  color: var(--text);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.8;
 }
 
 main {
-	max-width: 520px;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 h1 {
-	margin: 0 0 24px;
-	font-size: 32px;
+  margin: 0 0 36px;
+  color: var(--primary-dark);
+  font-size: clamp(32px, 7vw, 48px);
+  letter-spacing: 0.08em;
+  text-align: center;
 }
 
 section {
-	margin-bottom: 24px;
+  margin-bottom: 24px;
+  padding: 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 7px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.18);
 }
 
 h2 {
-	margin: 0 0 12px;
-	padding-bottom: 4px;
-	border-bottom: 1px solid #d5dce2;
-	font-size: 24px;
-	line-height: 1.35;
+  margin: 0 0 10px;
+  color: var(--primary-dark);
+  font-size: 21px;
+  line-height: 1.4;
 }
 
 p {
-	margin: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
 }
+
+/* ボタン用デザイン */
+button,
+input[type="button"],
+input[type="submit"] {
+  min-width: 180px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 14px;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+}
+
