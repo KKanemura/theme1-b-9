@@ -18,7 +18,8 @@ body {
   padding: 40px 20px;
   background: linear-gradient(135deg, #dbeafe, #f8fafc);
   color: var(--text);
-  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: "Yu Gothic UI", "Meiryo", sans-serif;
+  font-size: 18px;
   line-height: 1.8;
 }
 
@@ -43,66 +44,131 @@ section {
   border-left: 7px solid var(--primary);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.18);
 }
 
 h2 {
-  margin: 0 0 10px;
+  margin: 0 0 16px;
   color: var(--primary-dark);
-  font-size: 21px;
-  line-height: 1.4;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h3 {
+  margin: 0 0 16px;
+  color: var(--primary-dark);
+  font-size: 26px;
+  font-weight: bold;
 }
 
 p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 16px;
+  margin: 0 0 12px;
+  font-size: 18px;
 }
 
-/* index.htmlにボタンを追加した場合に適用されるデザイン */
-button,
-input[type="button"],
-input[type="submit"] {
+button {
   min-width: 180px;
   min-height: 50px;
   padding: 12px 24px;
   border: 0;
   border-radius: 999px;
   background-color: var(--primary);
-  color: #ffffff;
+  color: #fff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.25);
-  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
+button:hover {
+  background: var(--primary-dark);
 }
 
-button:active,
-input[type="button"]:active,
-input[type="submit"]:active {
-  transform: translateY(0);
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
 }
 
-button:focus-visible,
-input[type="button"]:focus-visible,
-input[type="submit"]:focus-visible {
-  outline: 3px solid #93c5fd;
-  outline-offset: 4px;
+input[type="range"] {
+  width: 100%;
+  margin: 16px 0;
+}
+
+#usage-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+#status-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#availability-list article {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #f8fbff;
+}
+
+.rate {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.status {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.status-empty {
+  color: #16a34a;
+}
+
+.status-limited {
+  color: #ca8a04;
+}
+
+.status-full {
+  color: #dc2626;
+}
+
+.gauge {
+  width: 100%;
+  height: 24px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.gauge-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.gauge-empty {
+  background: #22c55e;
+}
+
+.gauge-limited {
+  background: #eab308;
+}
+
+.gauge-full {
+  background: #ef4444;
+}
+
+small {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
 }
 
 @media (max-width: 600px) {
+
   body {
     padding: 24px 14px;
   }
@@ -112,7 +178,21 @@ input[type="submit"]:focus-visible {
   }
 
   h2 {
-    font-size: 19px;
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .rate,
+  .status,
+  #usage-value,
+  #status-value {
+    font-size: 20px;
   }
 }
-
