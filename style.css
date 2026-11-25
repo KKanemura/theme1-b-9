@@ -16,7 +16,11 @@ body {
   margin: 0;
   min-height: 100vh;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #dbeafe, #f8fafc);
+  background: linear-gradient(
+    135deg,
+    #bfdbfe,
+    #eff6ff
+  );
   color: var(--text);
   font-family: "Yu Gothic UI", "Meiryo", sans-serif;
   font-size: 18px;
@@ -32,22 +36,22 @@ h1 {
   margin: 0 0 36px;
   color: var(--primary-dark);
   font-size: clamp(32px, 7vw, 48px);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-align: center;
 }
 
 section {
-  margin-bottom: 24px;
-  padding: 24px 28px;
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-left: 7px solid var(--primary);
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+  margin-bottom: 30px;
+  padding: 32px;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(37, 99, 235, 0.12);
 }
 
 h2 {
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   color: var(--primary-dark);
   font-size: 32px;
   font-weight: 700;
@@ -61,48 +65,102 @@ h3 {
 }
 
 p {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-size: 18px;
 }
 
 button {
-  min-width: 180px;
-  min-height: 50px;
-  padding: 12px 24px;
+  min-width: 220px;
+  min-height: 60px;
+  padding: 12px 28px;
   border: 0;
   border-radius: 999px;
-  background-color: var(--primary);
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #2563eb
+  );
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  background: var(--primary-dark);
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
 }
 
 select {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   margin-top: 8px;
-  border-radius: 8px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fff;
 }
 
 input[type="range"] {
   width: 100%;
-  margin: 16px 0;
+  height: 12px;
+  margin: 20px 0;
+  appearance: none;
+  background: #dbeafe;
+  border-radius: 999px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
 }
 
 #usage-value {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--primary-dark);
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #2563eb;
+  background: #dbeafe;
+  border-radius: 999px;
 }
 
 #status-value {
-  font-size: 24px;
-  font-weight: bold;
+  display: inline-block;
+  padding: 10px 24px;
+  margin-left: 10px;
+  font-size: 42px;
+  font-weight: 700;
+  border-radius: 999px;
 }
 
 #availability-list article {
@@ -114,25 +172,34 @@ input[type="range"] {
 }
 
 .rate {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
 }
 
 .status {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .status-empty {
-  color: #16a34a;
+  color: #166534;
+  background: #dcfce7;
+  padding: 8px 20px;
+  border-radius: 999px;
 }
 
 .status-limited {
-  color: #ca8a04;
+  color: #92400e;
+  background: #fef3c7;
+  padding: 8px 20px;
+  border-radius: 999px;
 }
 
 .status-full {
-  color: #dc2626;
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 8px 20px;
+  border-radius: 999px;
 }
 
 .gauge {
@@ -170,11 +237,15 @@ small {
 @media (max-width: 600px) {
 
   body {
-    padding: 24px 14px;
+    padding: 20px 12px;
   }
 
   section {
     padding: 20px;
+  }
+
+  h1 {
+    font-size: 34px;
   }
 
   h2 {
@@ -189,10 +260,27 @@ small {
     font-size: 16px;
   }
 
-  .rate,
-  .status,
-  #usage-value,
+  button {
+    width: 100%;
+    min-width: auto;
+  }
+
+  #usage-value {
+    display: block;
+    margin: 12px 0 0;
+    font-size: 34px;
+    text-align: center;
+  }
+
   #status-value {
-    font-size: 20px;
+    display: block;
+    margin: 12px 0 0;
+    font-size: 34px;
+    text-align: center;
+  }
+
+  .rate,
+  .status {
+    font-size: 22px;
   }
 }
