@@ -1,57 +1,125 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>アキアキ</title>
-	<link rel="stylesheet" href="style.css">
-	<script src="app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アキアキ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-	<main>
-		<h1>アキアキ</h1>
 
-		<section>
-			<h2>どんな人に向いているか</h2>
-			<p>自習したいが場所がなかなか見つからない人が対象</p>
-		</section>
+    <main>
 
-		<section>
-			<h2>メイン機能</h2>
-			<p>ラーニングコモンズや空き教室、図書館などの席の空き状況を<br>一画面で確認可能</p>
-		</section>
+        <h1>アキアキ</h1>
 
-		<section>
-			<h2>メリットと料金設定</h2>
-			<p>勉強したい学生たちが場所をすぐに見つけられる<br>料金としては六か月で500円</p>
-		</section>
+        <!-- メニュー画面 -->
+        <section id="menu-page">
 
+            <h2>メニュー</h2>
 
-		<section class="availability-section" aria-labelledby="availability-title">
-			<h2 id="availability-title">教室ごとの空き状況</h2>
-			<form id="room-form" class="room-form">
-				<label>
-					教室名
-					<input id="room-name" name="room-name" type="text" placeholder="例：A棟101" required>
-				</label>
-				<label>
-					座席数
-					<input id="seat-count" name="seat-count" type="number" min="1" placeholder="30" required>
-				</label>
-				<label>
-					空き状況
-					<select id="room-status" name="room-status">
-						<option value="available">空き</option>
-						<option value="limited">残りわずか</option>
-						<option value="full">満席</option>
-					</select>
-				</label>
-				<button type="submit">教室を追加</button>
-			</form>
+            <button id="check-button" type="button">
+                空き状況の確認
+            </button>
 
-			<div id="room-list" class="room-list" aria-live="polite"></div>
-			<p id="empty-state" class="empty-state">登録されている教室はありません。</p>
-		</section>
-	</main>
+            <br><br>
+
+            <button id="register-button" type="button">
+                空き状況の登録
+            </button>
+
+        </section>
+
+        <!-- 確認画面 -->
+        <section id="check-page" style="display:none;">
+
+            <h2>空き状況の確認</h2>
+
+            <button id="back-from-check" type="button">
+                戻る
+            </button>
+
+            <br><br>
+
+            <div id="availability-list"></div>
+
+        </section>
+
+        <!-- 登録画面 -->
+        <section id="register-page" style="display:none;">
+
+            <h2>空き状況の登録</h2>
+
+            <button id="back-from-register" type="button">
+                戻る
+            </button>
+
+            <br><br>
+
+            <form id="availability-form">
+
+                <label>
+                    対応場所
+                    <select id="place-input">
+                        <option value="ラーニングコモンズ">
+                            ラーニングコモンズ
+                        </option>
+                        <option value="図書館">
+                            図書館
+                        </option>
+                    </select>
+                </label>
+
+                <br><br>
+
+                <label>
+                    混雑率（目安）
+                </label>
+
+                <br>
+
+                <input
+                    id="available-input"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+
+                <p>
+                    現在の混雑率：
+                    <span id="usage-value">0%</span>
+                </p>
+
+                <p>
+                    空き状況：
+                    <span id="status-value">空き</span>
+                </p>
+
+                <!-- 追加したリアルタイムゲージ -->
+                <div class="live-gauge">
+                    <div
+                        id="live-gauge-fill"
+                        class="live-gauge-fill gauge-empty">
+                    </div>
+                </div>
+
+                <p>
+                    判定基準<br>
+                    0〜69％：空き<br>
+                    70〜99％：残りわずか<br>
+                    100％：満席
+                </p>
+
+                <button type="submit">
+                    空き状況を保存
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
